@@ -6,17 +6,16 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:25:15 by cwenz             #+#    #+#             */
-/*   Updated: 2023/05/19 15:59:25 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/05/19 17:21:37 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void *init_stack(int stack_count, char **stack_values)
+int *init_stack(int stack_count, char **stack_values)
 {
-	
-
-	return ;
+	printf("%d %s", stack_count, stack_values[0]);
+	return (0);
 }
 
 

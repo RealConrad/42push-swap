@@ -6,12 +6,13 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/05/19 16:30:00 by cwenz            ###   ########.fr        #
+#    Updated: 2023/05/19 17:51:18 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of library
 NAME				= push_swap
+LIBFT				= libft.a
 
 # Compiler and flags
 CC					= cc
@@ -26,7 +27,7 @@ C_LIBRARY_CLEAN		= make clean -C 42c-library
 C_LIBRARY_FCLEAN	= make fclean -C 42c-library
 
 # Source files (.c files)
-SRC					= push_swap.c
+SRC					= main.c 
 
 # Object files
 OBJ					= $(SRC:.c=.o)
@@ -36,8 +37,9 @@ all: $(NAME)
 
 # Create library and add all object files
 $(NAME): $(OBJ)
-	$(C_LIBRARY_MAKE)
-	@$(AFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
+	@$(C_LIBRARY_MAKE)
+	@cp $(C_LIBRARY) .
+	@$(AFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	
 # Compile src files
 $(OBJ): $(SRC)
@@ -54,7 +56,7 @@ fclean: clean
 	@$(RM) $(NAME)
 
 # Recreates the entire library and removes object files
-re: clean fclean all
+re: fclean all
 
 # Tells make that these are commands and not files
 .PHONY: all clean fclean re

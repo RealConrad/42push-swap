@@ -1,3 +1,6 @@
 push_swap_visualizer
 a.out
 checker_Mac
+
+*.o
+*.a
