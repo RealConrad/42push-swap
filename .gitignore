@@ -2,5 +2,6 @@ push_swap_visualizer
 a.out
 checker_Mac
 
+# All object files and library files
 *.o
 *.a
