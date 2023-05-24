@@ -2,5 +2,9 @@ push_swap_visualizer
 a.out
 checker_Mac
 
+# Project executable file
+push_swap
+
+# Archieve and object files
 *.o
 *.a
