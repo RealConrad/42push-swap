@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 13:25:15 by cwenz             #+#    #+#             */
-/*   Updated: 2023/05/19 17:21:37 by cwenz            ###   ########.fr       */
+/*   Created: 2023/05/16 16:27:19 by cwenz             #+#    #+#             */
+/*   Updated: 2023/05/28 18:56:28 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# include "../includes/push_swap.h"
 
-int *init_stack(int stack_count, char **stack_values)
+int main(int argc, char **argv)
 {
-	printf("%d %s", stack_count, stack_values[0]);
+	t_stack list = { NULL, NULL}; // Initialize stack with null head and tail
+	
+	if (argc <= 1)
+		return (0);
+	init_stack(&list, argc, argv);
+	print_list(list.head); // Print from head
+	// system("leaks a.out");
 	return (0);
 }
 
-
-
-// t_stack *create_node(int data)
-// {
-// 	t_stack	*node;
-	
-// 	node = (t_stack*)malloc(sizeof(t_stack));
-// }
-
 // Function to print the linked list
-void printList(t_stack *node) 
+void print_list(t_node *node) 
 {
+	ft_printf("Linked List: ");
 	while (node != NULL)
     {
-    	printf("%d ", node->value);
+    	ft_printf("%d ", node->value);
     	node = node->next;
 	}
+	ft_printf("\n");
 }
+

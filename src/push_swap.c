@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:41 by cwenz             #+#    #+#             */
-/*   Updated: 2023/05/19 17:20:12 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/05/24 15:00:02 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // void push_swap(t_stack stackA, t_stack stackB)
 // {

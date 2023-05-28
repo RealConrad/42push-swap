@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/05/24 14:26:25 by cwenz            ###   ########.fr        #
+#    Updated: 2023/05/24 15:02:55 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,14 @@ C_LIBRARY			:= 42c-library/libft.a
 # Commands for building and cleaning the C library
 # Make is run in the directory of the library
 C_LIBRARY_MAKE		:= make -C 42c-library
-C_LIBRARY_CLEAN		:= make clean -C 42c-library
 C_LIBRARY_FCLEAN	:= make fclean -C 42c-library
 
-# Source files (.c files) 
-SRC					:= main.c
+# Directories to source files
+INIT_DIR		:= ./src/initialize
+
+# Source files (.c files)
+SRC_FILES			:= main.c initialize.c push_swap.c # REMOVE
+SRC					:= $(addprefix ./src/, $(SRC_FILES)) # CHANGE
 
 # Object files (.o files) generated from the source files
 OBJ					:= $(SRC:.c=.o)
@@ -52,11 +55,10 @@ $(NAME): $(OBJ)
 	
 # Compile src files
 $(OBJ): %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Remove all object files
 clean:
-	@$(C_LIBRARY_CLEAN)
 	@$(RM) $(OBJ)
 	
 # Remove all generated files
