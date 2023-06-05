@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/05/24 15:02:55 by cwenz            ###   ########.fr        #
+#    Updated: 2023/06/03 12:39:13 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,14 @@ C_LIBRARY_MAKE		:= make -C 42c-library
 C_LIBRARY_FCLEAN	:= make fclean -C 42c-library
 
 # Directories to source files
-INIT_DIR		:= ./src/initialize
+OP_DIR				:= ./src/operations/
+SRC_DIR				:= ./src/
 
 # Source files (.c files)
-SRC_FILES			:= main.c initialize.c push_swap.c # REMOVE
-SRC					:= $(addprefix ./src/, $(SRC_FILES)) # CHANGE
+SRC_FILES			:= main.c initialize.c push_swap.c error.c sort.c
+OP_SRC_FILES		:= push_pop.c rotate.c
+SRC					+= $(addprefix $(OP_DIR), $(OP_SRC_FILES))
+SRC					+= $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 # Object files (.o files) generated from the source files
 OBJ					:= $(SRC:.c=.o)
@@ -68,9 +71,7 @@ fclean: clean
 	@$(RM) $(LIBFT)
 
 # Rule for rebuilding everything
-# Important to use $(MAKE) instead of 'make' to pass command line arguments
-re: fclean
-	$(MAKE) all
+re: fclean all
 
 # Declare the targets as phony (not representing files)
 .PHONY: all clean fclean re
