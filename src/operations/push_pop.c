@@ -6,22 +6,26 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:06:26 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/03 14:48:09 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/07 13:57:53 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push)
+static void push(t_stack *stack, t_node *node);
+static t_node *pop(t_stack *stack);
+
+void pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push, char stack_name)
 {
 	t_node	*node;
 
 	node = pop(stack_to_pop);
 	if (node)
 		push(stack_to_push, node);
+	ft_printf("p%c\n", stack_name);
 }
 
-t_node *pop(t_stack *stack)
+static t_node *pop(t_stack *stack)
 {
 	t_node	*node_to_pop;
 
@@ -39,7 +43,7 @@ t_node *pop(t_stack *stack)
 	return (node_to_pop);	
 }
 
-void push(t_stack *stack, t_node *node)
+static void push(t_stack *stack, t_node *node)
 {
 	node->next = stack->head; // New node becomes current head
 	node->prev = NULL; // New nodes previous pointer is set to NULL
