@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/06/03 12:39:13 by cwenz            ###   ########.fr        #
+#    Updated: 2023/06/05 14:50:30 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,16 @@ C_LIBRARY_FCLEAN	:= make fclean -C 42c-library
 
 # Directories to source files
 OP_DIR				:= ./src/operations/
+INIT_DIR			:= ./src/initialize/
 SRC_DIR				:= ./src/
 
 # Source files (.c files)
-SRC_FILES			:= main.c initialize.c push_swap.c error.c sort.c
+SRC_FILES			:= main.c push_swap.c error.c sort.c
 OP_SRC_FILES		:= push_pop.c rotate.c
+INIT_SRC_FILES		:= initialize.c initialize_utils.c
+
 SRC					+= $(addprefix $(OP_DIR), $(OP_SRC_FILES))
+SRC					+= $(addprefix $(INIT_DIR), $(INIT_SRC_FILES))
 SRC					+= $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 # Object files (.o files) generated from the source files
