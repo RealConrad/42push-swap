@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/10 18:27:07 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/11 14:24:21 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_node {
 	struct s_node	*prev;
 } t_node;
 
-// Entire stack
+// Entire stack (used as a "wrapper" for the entire linked list)
 typedef struct s_stack {
 	t_node	*head;
 	t_node	*tail;
@@ -54,7 +54,7 @@ void	start_sorting(t_stack *stack_a, t_stack *stack_b);
 // Operations
 void	swap(t_stack *stack, t_operation operation);
 void	pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push, t_operation operation);
-void 	rotate(t_stack *stack, t_operation operation);
+void	rotate(t_stack *stack, t_operation operation);
 void	rev_rotate(t_stack *stack, t_operation operation);
 
 // Error handling
