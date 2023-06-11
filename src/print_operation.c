@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:47:45 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/10 17:11:09 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/11 15:21:53 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 7. rb (rotate b): Shift up all elements of stack b by 1. ------------- DONE -------------
 8. rr : ra and rb at the same time.
 
-9. rra (reverse rotate a): Shift down all elements of stack a by 1
+9. rra (reverse rotate a): Shift down all elements of stack a by 1. ------------- DONE -------------
 10. rrb (reverse rotate b): Shift down all elements of stack b by 1.
 11. rrr : rra and rrb at the same time.
 */
@@ -43,4 +43,6 @@ void	print_operation(t_operation operation)
 		ft_printf("ra\n");
 	else if (operation == OPERATION_RB)
 		ft_printf("rb\n");
+	else if (operation == OPERATION_RRA)
+		ft_printf("rra\n");
 }
