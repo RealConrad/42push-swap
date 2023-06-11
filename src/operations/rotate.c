@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 11:49:36 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/10 18:16:37 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/11 16:23:02 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,21 @@ void rotate(t_stack *stack, t_operation operation)
 	print_operation(operation);
 }
 
-void	rev_rotate(t_stack *stack, t_operation operation)
+void rev_rotate(t_stack *stack, t_operation operation)
 {
 	t_node	*old_tail;
-	
+
 	if (stack->size <= 1) // if true, no rotation needed
 		return ;
 	old_tail = stack->tail;
+
+	stack->tail = old_tail->prev;
+	stack->tail->next = NULL;
+
 	old_tail->prev = NULL;
-	
-	stack->head->prev = old_tail;
 	old_tail->next = stack->head;
+	stack->head->prev = old_tail;
 	stack->head = old_tail;
+
 	print_operation(operation);
 }
