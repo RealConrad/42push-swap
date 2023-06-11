@@ -6,13 +6,13 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:12:24 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/03 14:26:14 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/10 17:13:26 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	swap(t_stack *stack)
+void	swap(t_stack *stack, t_operation operation)
 {
 	t_node	*old_head;
 	
@@ -27,4 +27,6 @@ void	swap(t_stack *stack)
 
 	stack->head->prev = NULL;
 	stack->head->next = old_head;
+	
+	print_operation(operation);
 }

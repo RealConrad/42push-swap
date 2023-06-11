@@ -6,15 +6,15 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 11:49:36 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/07 13:54:21 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/10 18:16:37 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void ra(t_stack *stack)
+void rotate(t_stack *stack, t_operation operation)
 {
-	t_node *old_head = NULL;
+	t_node *old_head;
 
 	// If the stack size is 1 or less, no rotation is needed
 	if (stack->size <= 1)
@@ -28,5 +28,20 @@ void ra(t_stack *stack)
 	old_head->prev = stack->tail;  // Now the last node, its 'prev' point to the previous tail
 	stack->tail = old_head; // Update the tail of the stack to be the old head
 
-	ft_printf("ra\n");
+	print_operation(operation);
+}
+
+void	rev_rotate(t_stack *stack, t_operation operation)
+{
+	t_node	*old_tail;
+	
+	if (stack->size <= 1) // if true, no rotation needed
+		return ;
+	old_tail = stack->tail;
+	old_tail->prev = NULL;
+	
+	stack->head->prev = old_tail;
+	old_tail->next = stack->head;
+	stack->head = old_tail;
+	print_operation(operation);
 }

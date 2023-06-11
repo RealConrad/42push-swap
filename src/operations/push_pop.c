@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:06:26 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/07 14:23:46 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/10 17:15:00 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 static void push(t_stack *stack, t_node *node);
 static t_node *pop(t_stack *stack);
 
-void pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push, char stack_name)
+void pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push, t_operation operation)
 {
 	t_node	*node;
 
 	node = pop(stack_to_pop);
 	if (node)
 		push(stack_to_push, node);
-	ft_printf("p%c\n", stack_name);	
+	print_operation(operation);
 }
 
 static t_node *pop(t_stack *stack)
