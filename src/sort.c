@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:09:45 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/10 17:16:55 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/11 16:27:52 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ void	sort_3(t_stack *stack)
 		rotate(stack, OPERATION_RA);
 	else if (head < mid && mid > tail && tail < head)
 		rev_rotate(stack, OPERATION_RRA);
+	else if (head > mid && mid > tail && tail < head)
+	{
+		swap(stack, OPERATION_SA);
+		rev_rotate(stack, OPERATION_RRA);
+	}
 	else if (head < mid && mid > tail && tail > head)
 	{
 		swap(stack, OPERATION_SA);
