@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/06/07 15:22:28 by cwenz            ###   ########.fr        #
+#    Updated: 2023/06/10 17:19:35 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,8 @@ INIT_DIR			:= ./src/initialize/
 SRC_DIR				:= ./src/
 
 # Source files (.c files)
-SRC_FILES			:= main.c error.c sort.c
-OP_SRC_FILES		:= push_pop.c rotate.c
+SRC_FILES			:= main.c error.c sort.c print_operation.c
+OP_SRC_FILES		:= push_pop.c rotate.c swap.c
 INIT_SRC_FILES		:= initialize.c initialize_utils.c
 
 SRC					+= $(addprefix $(OP_DIR), $(OP_SRC_FILES))
