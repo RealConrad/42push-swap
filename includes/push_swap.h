@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/11 14:24:21 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/16 17:04:39 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <stdbool.h> 
 # include "../42c-library/libft_main.h"
+
+# define CHUNK_SIZE 20
 
 typedef enum {
 	OPERATION_SA,
@@ -50,6 +52,11 @@ bool	is_duplicate(t_stack *stack, int value);
 
 // Sorting
 void	start_sorting(t_stack *stack_a, t_stack *stack_b);
+void	sort_3(t_stack *stack);
+void	sort_5(t_stack *stack_a, t_stack *stack_b);
+void	sort_medium(t_stack *stack_a, t_stack *stack_b);
+t_node	*smallest_node(t_stack *stack);
+t_node	*largest_node(t_stack *stack);
 
 // Operations
 void	swap(t_stack *stack, t_operation operation);

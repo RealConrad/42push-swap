@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/06/10 17:19:35 by cwenz            ###   ########.fr        #
+#    Updated: 2023/06/16 16:04:08 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ AFLAGS				:= ar -rcs
 RM					:= rm -f
 
 # Path to the C library to be used
-C_LIBRARY			:= 42c-library/libft.a 
+C_LIBRARY			:= 42c-library/libft.a
 
 # Commands for building and cleaning the C library
 # Make is run in the directory of the library
@@ -37,15 +37,21 @@ C_LIBRARY_FCLEAN	:= make fclean -C 42c-library
 # Directories to source files
 OP_DIR				:= ./src/operations/
 INIT_DIR			:= ./src/initialize/
+ERROR_DIR			:= ./src/error/
+SORT_DIR			:= ./src/sort/
 SRC_DIR				:= ./src/
 
 # Source files (.c files)
-SRC_FILES			:= main.c error.c sort.c print_operation.c
-OP_SRC_FILES		:= push_pop.c rotate.c swap.c
-INIT_SRC_FILES		:= initialize.c initialize_utils.c
+SRC_FILES			:= main.c
+ERROR_FILES			:= error.c
+SORT_FILES			:= start_sorting.c sort_small.c sort_medium.c sort_utils.c
+OP_SRC_FILES		:= push_pop.c rotate.c swap.c print_operation.c
+INIT_SRC_FILES		:= initialize.c initialize_utils.c 
 
 SRC					+= $(addprefix $(OP_DIR), $(OP_SRC_FILES))
 SRC					+= $(addprefix $(INIT_DIR), $(INIT_SRC_FILES))
+SRC					+= $(addprefix $(ERROR_DIR), $(ERROR_FILES))
+SRC					+= $(addprefix $(SORT_DIR), $(SORT_FILES))
 SRC					+= $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 # Object files (.o files) generated from the source files
@@ -67,12 +73,11 @@ $(OBJ): %.o: %.c
 # Remove all object files
 clean:
 	@$(RM) $(OBJ)
-	
+
 # Remove all generated files
 fclean: clean
 	@$(C_LIBRARY_FCLEAN)
 	@$(RM) $(NAME)
-	@$(RM) $(LIBFT)
 
 # Rule for rebuilding everything
 re: fclean all
