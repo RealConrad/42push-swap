@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/06/17 19:13:27 by cwenz            ###   ########.fr        #
+#    Updated: 2023/06/18 18:01:38 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT				:= libft.a
 
 # Compiler and flags
 CC					:= cc
-CFLAGS				:= -Wall -Werror -Wextra
+CFLAGS				:= -Wall -Werror -Wextra -I./includes
 
 # Archiver flags
 AFLAGS				:= ar -rcs
