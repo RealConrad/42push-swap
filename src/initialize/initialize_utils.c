@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:24:09 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/17 19:09:30 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 15:23:25 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,26 @@ bool	is_duplicate(t_stack *stack, int value)
 		node = node->next;
 	}
 	return (false);
+}
+
+void assign_id_values(t_stack *stack)
+{
+	int		i;
+	t_node	*node;
+	t_node	*temp_node;
+
+	node = stack->head;
+	while (node)
+	{
+		temp_node = stack->head;
+		i = 1;
+		while (temp_node)
+		{
+			if (node->value > temp_node->value)
+				i++;
+			temp_node = temp_node->next;
+		}
+		node->id = i;
+		node = node->next;
+	}
 }

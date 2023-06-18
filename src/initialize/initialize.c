@@ -6,33 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:25:15 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/17 19:15:36 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 15:23:19 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/push_swap.h"
-
-void assign_id_values(t_stack *stack)
-{
-	int		i;
-	t_node	*node;
-	t_node	*temp_node;
-
-	node = stack->head;
-	while (node)
-	{
-		temp_node = stack->head;
-		i = 1;
-		while (temp_node)
-		{
-			if (node->value > temp_node->value)
-				i++;
-			temp_node = temp_node->next;
-		}
-		node->id = i;
-		node = node->next;
-	}
-}
 
 void init_stack(t_stack *stack, int argc, char **argv)
 {
