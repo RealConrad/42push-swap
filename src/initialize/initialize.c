@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:25:15 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/18 15:23:19 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:02:28 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+# include "push_swap.h"
 
 void init_stack(t_stack *stack, int argc, char **argv)
 {

@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:22:53 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/16 15:59:38 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:02:16 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void display_error_and_exit()
 {

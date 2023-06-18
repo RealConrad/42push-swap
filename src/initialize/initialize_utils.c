@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:24:09 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/18 15:23:25 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:02:25 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	add_node_to_end(t_stack *stack, int node_value)
 {
@@ -23,7 +23,7 @@ void	add_node_to_end(t_stack *stack, int node_value)
 	new_node->next = NULL;
 	new_node->prev = stack->tail;
 	stack->size++;
-	if (!stack->head) // If the  is not initialized yet
+	if (!stack->head) // If the stack is not initialized yet
 	{
 		stack->head = new_node;
 		stack->tail = new_node;
@@ -40,7 +40,7 @@ bool	is_number(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (str[i]) // Check if all characters are digits
 	{

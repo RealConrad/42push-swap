@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:47:45 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/16 15:59:23 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:02:33 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 /*
 1. sa (swap a): Swap the first 2 elements at the top of stack a. ------------- DONE -------------

@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:12:24 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/11 17:07:02 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:02:46 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void swap(t_stack *stack, t_operation operation)
 {

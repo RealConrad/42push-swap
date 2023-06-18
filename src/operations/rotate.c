@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 11:49:36 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/11 16:23:02 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:02:42 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void rotate(t_stack *stack, t_operation operation)
 {

@@ -6,11 +6,16 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:19 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/17 19:31:55 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:02:06 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
+
+// TODO:
+// 1. Account for int overflow
+// 2. Complete 100 &  500 number search
+// 3. Check edge cases
 
 int	main(int argc, char **argv)
 {
