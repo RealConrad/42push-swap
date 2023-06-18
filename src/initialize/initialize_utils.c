@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:24:09 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/13 13:06:47 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/17 19:09:30 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void	add_node_to_end(t_stack *stack, int node_value)
 	new_node->value = node_value;
 	new_node->next = NULL;
 	new_node->prev = stack->tail;
-	new_node->original_pos = stack->size; // use stack size to determine original pos
 	stack->size++;
-	if (!stack->head) // If the stack is not initialized yet
+	if (!stack->head) // If the  is not initialized yet
 	{
 		stack->head = new_node;
 		stack->tail = new_node;

@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/16 17:04:39 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/18 15:23:35 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef enum {
 // Indivdual nodes
 typedef struct s_node {
 	int				value;
-	int				original_pos;
+	int				id;
 	struct s_node	*next;
 	struct s_node	*prev;
 } t_node;
@@ -49,6 +49,7 @@ void	init_stack(t_stack *stack, int argc, char **argv);
 void	add_node_to_end(t_stack *stack, int node_value);
 bool	is_number(char *str);
 bool	is_duplicate(t_stack *stack, int value);
+void assign_id_values(t_stack *stack)
 
 // Sorting
 void	start_sorting(t_stack *stack_a, t_stack *stack_b);
