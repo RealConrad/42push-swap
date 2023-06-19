@@ -6,11 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:13:53 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/13 18:14:12 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/19 12:34:00 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	sort_3(t_stack *stack)
 {
@@ -50,7 +50,7 @@ void	sort_5(t_stack *stack_a, t_stack *stack_b)
 		while(stack_a->head->value != min->value)
 		{
 			// Check which operation would be most efficient
-			if (min->original_pos <= stack_a->size / 2)
+			if (min->original_pos_in_stack <= stack_a->size / 2)
 				rotate(stack_a, OPERATION_RA);
 			else
 				rev_rotate(stack_a, OPERATION_RRA);

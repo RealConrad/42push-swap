@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/18 15:23:44 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/19 15:59:13 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include <stdbool.h> 
 # include "../42c-library/libft_main.h"
 
-# define CHUNK_SIZE 20
-
-typedef enum {
+typedef enum e_operation {
 	OPERATION_SA,
 	OPERATION_SB,
 	OPERATION_PA,
@@ -27,12 +25,19 @@ typedef enum {
 	OPERATION_RA,
 	OPERATION_RB,
 	OPERATION_RRA,
+	OPERATION_RRB,
 } t_operation;
+
+typedef enum e_direction {
+	TOP, 
+	BOTTOM
+} t_direction;
 
 // Indivdual nodes
 typedef struct s_node {
 	int				value;
 	int				id;
+	int				original_pos_in_stack;
 	struct s_node	*next;
 	struct s_node	*prev;
 } t_node;
@@ -49,13 +54,18 @@ void	init_stack(t_stack *stack, int argc, char **argv);
 void	add_node_to_end(t_stack *stack, int node_value);
 bool	is_number(char *str);
 bool	is_duplicate(t_stack *stack, int value);
-void	assign_id_values(t_stack *stack)
+void	assign_id_values(t_stack *stack);
 
 // Sorting
 void	start_sorting(t_stack *stack_a, t_stack *stack_b);
 void	sort_3(t_stack *stack);
 void	sort_5(t_stack *stack_a, t_stack *stack_b);
 void	sort_medium(t_stack *stack_a, t_stack *stack_b);
+
+bool	nodes_in_chunk(t_stack *stack, int chunk_start, int chunk_end);
+void	rotate_until_on_top_stack(t_stack *stack, t_node *node_to_move);
+int		check_from_direction(t_node **node, int chunk_start, int chunk_end, t_direction direction);
+void	move_node_to_top(t_stack *stack_a, t_stack *stack_b, t_node *node);
 t_node	*smallest_node(t_stack *stack);
 t_node	*largest_node(t_stack *stack);
 
