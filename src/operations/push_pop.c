@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:06:26 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/18 18:02:37 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/19 12:31:01 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void push(t_stack *stack, t_node *node)
 	else
 		stack->tail = node; // If stack is empty, the new node is both head and tail
 	stack->head = node; // The new node becomes the head
+	node->original_pos_in_stack = stack->size; // Update the nodes position in the new stack
 	stack->size++;
 }
 
