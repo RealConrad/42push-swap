@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/06/18 18:01:38 by cwenz            ###   ########.fr        #
+#    Updated: 2023/06/20 15:03:23 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ SRC_DIR				:= ./src/
 # Source files (.c files)
 SRC_FILES			:= main.c
 ERROR_FILES			:= error.c
-SORT_FILES			:= start_sorting.c sort_small.c sort_medium.c sort_utils.c
+SORT_FILES			:= start_sorting.c sort_small.c sort_medium.c sort_utils.c sort_medium_utils.c
 OP_SRC_FILES		:= push_pop.c rotate.c swap.c print_operation.c
 INIT_SRC_FILES		:=initialize.c initialize_utils.c 
 
