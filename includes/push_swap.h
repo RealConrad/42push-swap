@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/19 15:59:13 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/20 17:31:21 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <stdbool.h> 
 # include "../42c-library/libft_main.h"
+
+int counter; // delete me
 
 typedef enum e_operation {
 	OPERATION_SA,
@@ -62,12 +64,15 @@ void	sort_3(t_stack *stack);
 void	sort_5(t_stack *stack_a, t_stack *stack_b);
 void	sort_medium(t_stack *stack_a, t_stack *stack_b);
 
-bool	nodes_in_chunk(t_stack *stack, int chunk_start, int chunk_end);
-void	rotate_until_on_top_stack(t_stack *stack, t_node *node_to_move);
-int		check_from_direction(t_node **node, int chunk_start, int chunk_end, t_direction direction);
-void	move_node_to_top(t_stack *stack_a, t_stack *stack_b, t_node *node);
 t_node	*smallest_node(t_stack *stack);
 t_node	*largest_node(t_stack *stack);
+
+// bool	nodes_in_chunk(t_stack *stack, int chunk_start, int chunk_end);
+// void	rotate_until_on_top_stack(t_stack *stack, t_node *node_to_move, t_operation r, t_operation rr);
+// int		check_from_direction(t_node **node, int chunk_start, int chunk_end, t_direction direction);
+// void	move_node_to_top(t_stack *stack_a, t_stack *stack_b, t_node *node);
+// t_node	*find_optimal_pos(t_stack *stack, t_node *node);
+
 
 // Operations
 void	swap(t_stack *stack, t_operation operation);

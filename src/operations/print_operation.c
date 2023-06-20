@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:47:45 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/19 15:58:55 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/20 12:58:12 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 
 void	print_operation(t_operation operation)
 {
+	counter++;
 	if (operation == OPERATION_SA)
 		ft_printf("sa\n");
 	else if (operation == OPERATION_SB)
