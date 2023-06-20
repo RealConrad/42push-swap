@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:19 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/18 18:02:06 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/20 17:58:52 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 // 1. Account for int overflow
 // 2. Complete 100 &  500 number search
 // 3. Check edge cases
+// 4. Remove unused structs
 
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-
 	// Initialize stack with null head and tail
 	stack_a.head = NULL;
 	stack_a.tail = NULL;
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 	start_sorting(&stack_a, &stack_b);
 	
 	print_list(stack_a.head);
+	printf("Total OPS: %d\n", counter);
 	return (0);
 }
 
