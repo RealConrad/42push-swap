@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:13:53 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/19 12:34:00 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/25 12:18:23 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,17 @@ void	sort_3(t_stack *stack)
 void	sort_5(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*min;
+	int		pos;
 
 	// Push 2 smallest values to stack b
 	while(stack_a->size > 3)
 	{
 		min = smallest_node(stack_a);
+		pos = get_position(stack_a, min);
 		while(stack_a->head->value != min->value)
 		{
 			// Check which operation would be most efficient
-			if (min->original_pos_in_stack <= stack_a->size / 2)
+			if (pos < stack_a->size / 2)
 				rotate(stack_a, OPERATION_RA);
 			else
 				rev_rotate(stack_a, OPERATION_RRA);
