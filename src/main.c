@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:19 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/20 17:58:52 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/25 12:17:46 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ int	main(int argc, char **argv)
 		return (0);
 	init_stack(&stack_a, --argc, ++argv); // Skip program name
 	start_sorting(&stack_a, &stack_b);
-	
-	print_list(stack_a.head);
-	printf("Total OPS: %d\n", counter);
+
+	// print_list(stack_a.head);
+	// ft_printf("Total OPS: %d\n", counter);
 	return (0);
 }
 
 // Function to print the linked list
 void	print_list(t_node *node)
 {
-	ft_printf("\nSorted list: \n");
+	ft_printf("\nStack: \n");
 	while (node != NULL)
 	{
 		ft_printf("%d ", node->value);
