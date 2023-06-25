@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:25:15 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/18 18:02:28 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/23 19:20:45 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void init_stack(t_stack *stack, int argc, char **argv)
 		free (split_strings);
 		i++;
 	}
-	assign_id_values(stack);
+	assign_id_and_binary(stack);
 }

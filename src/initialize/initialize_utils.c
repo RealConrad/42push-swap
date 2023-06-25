@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:24:09 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/19 12:30:01 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/23 20:30:47 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	add_node_to_end(t_stack *stack, int node_value)
 	new_node->value = node_value;
 	new_node->next = NULL;
 	new_node->prev = stack->tail;
-	new_node->original_pos_in_stack = stack->size;
 	stack->size++;
 	if (!stack->head) // If the stack is not initialized yet
 	{
@@ -66,7 +65,7 @@ bool	is_duplicate(t_stack *stack, int value)
 	return (false);
 }
 
-void assign_id_values(t_stack *stack)
+void assign_id_and_binary(t_stack *stack)
 {
 	int		i;
 	t_node	*node;
@@ -84,6 +83,35 @@ void assign_id_values(t_stack *stack)
 			temp_node = temp_node->next;
 		}
 		node->id = i;
+		node = node->next;
+	}
+	assign_binary_value(stack);
+}
+
+int decimal_to_binary(int n)
+{
+	int remainder;
+	int binary = 0;
+	int i = 1;
+
+	while (n != 0)
+	{
+		remainder = n % 2;
+		n /= 2;
+		binary += remainder * i;
+		i *= 10;
+	}
+	return (binary);
+}
+
+void assign_binary_value(t_stack *stack)
+{
+	t_node	*node;
+
+	node = stack->head;
+	while (node)
+	{
+		node->binary = decimal_to_binary(node->id);
 		node = node->next;
 	}
 }
