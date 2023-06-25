@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:12:59 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/19 19:40:53 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/25 12:20:25 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,31 @@
 static void	move_back_to_stack_a(t_stack *stack_a, t_stack *stack_b);
 static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start, int chunk_end);
 
-void	sort_medium(t_stack *stack_a, t_stack *stack_b)
+double	ft_sqrt(int num) {
+	if (num == 0)
+		return (0);
+	double x = num; // Initial guess
+	double copy = 1.0; // Previous guess
+
+	while (x - copy > 0.0001 || copy - x > 0.0001)
+	{
+		copy = x;
+		x = (x + num / x) / 2;
+	}
+	return (x);
+}
+
+void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks)
 {
-	int		chunk_size;
 	int		i;
+	int		chunk_size;
 	int		chunk_end;
 	int		chunk_start;
 
 	i = 0;
-	chunk_size = stack_a->size / 5;
-	while(i < 5)
+	// chunk_size = ft_sqrt(stack_a->size);
+	chunk_size = stack_a->size / num_chunks;
+	while(i < num_chunks)
 	{
 		chunk_start = i * chunk_size;
 		chunk_end = (i + 1) * chunk_size;
@@ -34,7 +49,6 @@ void	sort_medium(t_stack *stack_a, t_stack *stack_b)
 	move_back_to_stack_a(stack_a, stack_b);
 }
 
-
 static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start, int chunk_end)
 {
 	t_node	*top_node;
@@ -42,7 +56,7 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 	int		top_node_moves;
 	int		bottom_node_moves;
 
-	while(stack_a->size)
+	while (stack_a->size)
 	{
 		top_node_moves = 0;
 		bottom_node_moves = 0;
@@ -53,8 +67,6 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 		top_node_moves = check_from_direction(&top_node, chunk_start, chunk_end, TOP);	
 		bottom_node_moves = check_from_direction(&bottom_node, chunk_start, chunk_end, BOTTOM);
 		
-		ft_printf("Moves T - B: %d - %d\n", top_node_moves, bottom_node_moves);
-		ft_printf("StackA Size: %d --- StackB Size: %d\n", stack_a->size, stack_b->size);
 		if (top_node_moves <= bottom_node_moves)
 			move_node_to_top(stack_a, stack_b, top_node);
 		else
@@ -68,13 +80,15 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 static void	move_back_to_stack_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*largest;
+	int		pos;
 
 	while (stack_b->size)
 	{
 		largest = largest_node(stack_b);
 		while (stack_b->head != largest)
 		{
-			if (largest->original_pos_in_stack < stack_b->size / 2)
+			pos = get_position(stack_b, largest);
+			if (pos < stack_b->size / 2)
 				rotate(stack_b, OPERATION_RB);
 			else
 				rev_rotate(stack_b, OPERATION_RRB);
@@ -82,3 +96,4 @@ static void	move_back_to_stack_a(t_stack *stack_a, t_stack *stack_b)
 		pop_and_push(stack_b, stack_a, OPERATION_PA);
 	}
 }
+

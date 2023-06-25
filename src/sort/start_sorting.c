@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:09:45 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/18 18:03:03 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/06/25 12:20:38 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	start_sorting(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 5)
 		sort_5(stack_a, stack_b);
 	else if (stack_a->size > 5)
-		sort_medium(stack_a, stack_b);
+		sort_large(stack_a, stack_b, 3);
 }
