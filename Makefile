@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/06/20 15:03:23 by cwenz            ###   ########.fr        #
+#    Updated: 2023/07/03 17:07:54 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,20 +39,23 @@ OP_DIR				:= ./src/operations/
 INIT_DIR			:= ./src/initialize/
 ERROR_DIR			:= ./src/error/
 SORT_DIR			:= ./src/sort/
+FREE_DIR			:= ./src/free_memory/
 SRC_DIR				:= ./src/
 
 # Source files (.c files)
 SRC_FILES			:= main.c
+FREE_FILES			:= free_memory.c
 ERROR_FILES			:= error.c
-SORT_FILES			:= start_sorting.c sort_small.c sort_medium.c sort_utils.c sort_medium_utils.c
+SORT_FILES			:= start_sorting.c sort_small.c sort_large.c sort_utils.c sort_large_utils.c
 OP_SRC_FILES		:= push_pop.c rotate.c swap.c print_operation.c
-INIT_SRC_FILES		:=initialize.c initialize_utils.c 
+INIT_SRC_FILES		:= initialize.c initialize_utils.c initialize_utils2.c 
 
 SRC					+= $(addprefix $(OP_DIR), $(OP_SRC_FILES))
 SRC					+= $(addprefix $(INIT_DIR), $(INIT_SRC_FILES))
 SRC					+= $(addprefix $(ERROR_DIR), $(ERROR_FILES))
 SRC					+= $(addprefix $(SORT_DIR), $(SORT_FILES))
 SRC					+= $(addprefix $(SRC_DIR), $(SRC_FILES))
+SRC					+= $(addprefix $(FREE_DIR), $(FREE_FILES))
 
 # Object files (.o files) generated from the source files
 OBJ					:= $(SRC:.c=.o)
