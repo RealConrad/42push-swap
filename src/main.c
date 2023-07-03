@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:19 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/25 12:17:46 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 17:02:14 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 // TODO:
 // 1. Account for int overflow
-// 2. Complete 100 &  500 number search
 // 3. Check edge cases
-// 4. Remove unused structs
 
 int	main(int argc, char **argv)
 {
@@ -31,6 +29,8 @@ int	main(int argc, char **argv)
 		return (0);
 	init_stack(&stack_a, --argc, ++argv); // Skip program name
 	start_sorting(&stack_a, &stack_b);
+	
+	free_stack(&stack_a);
 
 	// print_list(stack_a.head);
 	// ft_printf("Total OPS: %d\n", counter);

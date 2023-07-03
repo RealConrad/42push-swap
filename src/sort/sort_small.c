@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:13:53 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/03 13:48:45 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 17:31:39 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	sort_4(t_stack *stack_a, t_stack *stack_b)
 	t_node	*min;
 	int		pos;
 
-	
 	min = smallest_node(stack_a);
 	pos = get_position(stack_a, min);
 	while (stack_a->head != min)
