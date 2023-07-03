@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:25:15 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/23 19:20:45 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 17:26:49 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void init_stack(t_stack *stack, int argc, char **argv)
 	char	**split_strings;
 	int		i;
 	int		j;
-	int		value;
+	long	value;
 
 	i = 0;
 	while (i < argc)
@@ -25,18 +25,18 @@ void init_stack(t_stack *stack, int argc, char **argv)
 		j = 0;
 		split_strings = ft_split(argv[i], ' ');
 		if (!split_strings)
-			display_error_and_exit();
+			free_and_exit(stack, FAIL);
 		while (split_strings[j])
 		{
-			value = ft_atoi(split_strings[j]);
-			if (!is_number(split_strings[j]) || is_duplicate(stack, value))
-				display_error_and_exit();
-			add_node_to_end(stack, value);
+			value = atol(split_strings[j]);
+			if (!is_valid_input(stack, value, split_strings[j]))
+				free_and_exit(stack, FAIL);
+			add_node_to_end(stack, (int) value); // typecast back to int as we only want ints
 			free(split_strings[j]);
 			j++;
 		}
-		free (split_strings);
+		free(split_strings);
 		i++;
 	}
-	assign_id_and_binary(stack);
+	assign_id(stack);
 }

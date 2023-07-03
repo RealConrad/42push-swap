@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:24:09 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/23 20:30:47 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 17:11:25 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	add_node_to_end(t_stack *stack, int node_value)
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
-		display_error_and_exit();
+		free_and_exit(stack, FAIL);
 	new_node->value = node_value;
 	new_node->next = NULL;
 	new_node->prev = stack->tail;
@@ -33,6 +33,15 @@ void	add_node_to_end(t_stack *stack, int node_value)
 		stack->tail->next = new_node; // Add the new node to the end of the list
 		stack->tail = new_node; // New node added above becomes the last node
 	}
+}
+
+bool	is_valid_input(t_stack *stack, long value, char *str)
+{
+	if (value > INT_MAX || value < INT_MIN)
+		return (false);
+	if (is_duplicate(stack,(int) value) || !is_number(str)) // typecast back to int as we only want ints
+		return (false);
+	return (true);
 }
 
 bool	is_number(char *str)
@@ -65,7 +74,7 @@ bool	is_duplicate(t_stack *stack, int value)
 	return (false);
 }
 
-void assign_id_and_binary(t_stack *stack)
+void assign_id(t_stack *stack)
 {
 	int		i;
 	t_node	*node;
@@ -83,35 +92,6 @@ void assign_id_and_binary(t_stack *stack)
 			temp_node = temp_node->next;
 		}
 		node->id = i;
-		node = node->next;
-	}
-	assign_binary_value(stack);
-}
-
-int decimal_to_binary(int n)
-{
-	int remainder;
-	int binary = 0;
-	int i = 1;
-
-	while (n != 0)
-	{
-		remainder = n % 2;
-		n /= 2;
-		binary += remainder * i;
-		i *= 10;
-	}
-	return (binary);
-}
-
-void assign_binary_value(t_stack *stack)
-{
-	t_node	*node;
-
-	node = stack->head;
-	while (node)
-	{
-		node->binary = decimal_to_binary(node->id);
 		node = node->next;
 	}
 }
