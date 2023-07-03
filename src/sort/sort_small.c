@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:13:53 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/25 12:18:23 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 13:48:45 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,26 @@ void	sort_3(t_stack *stack)
 		swap(stack, OPERATION_SA);
 		rotate(stack, OPERATION_RA);
 	}
+}
+
+void	sort_4(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*min;
+	int		pos;
+
+	
+	min = smallest_node(stack_a);
+	pos = get_position(stack_a, min);
+	while (stack_a->head != min)
+	{
+		if (pos < stack_a->size / 2)
+			rotate(stack_a, OPERATION_PA);
+		else
+			rev_rotate(stack_a, OPERATION_RRA);
+	}
+	pop_and_push(stack_a, stack_b, OPERATION_PB);
+	sort_3(stack_a);
+	pop_and_push(stack_b, stack_a, OPERATION_PA);
 }
 
 void	sort_5(t_stack *stack_a, t_stack *stack_b)

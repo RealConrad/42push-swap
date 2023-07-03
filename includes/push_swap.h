@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/25 12:20:07 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 13:47:31 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	assign_binary_value(t_stack *stack);
 // Sorting
 void	start_sorting(t_stack *stack_a, t_stack *stack_b);
 void	sort_3(t_stack *stack);
+void	sort_4(t_stack *stack_a, t_stack *stack_b);
 void	sort_5(t_stack *stack_a, t_stack *stack_b);
 void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks);
 
