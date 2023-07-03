@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:12:02 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/23 19:26:28 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 15:56:00 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,18 @@ t_node	*largest_node(t_stack *stack)
 		node = node->next;
 	}
 	return (largest);
+}
+
+bool	is_sorted(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->head;
+	while (current && current->next != NULL)
+	{
+		if (current->value > current->next->value)
+			return (false); // list is not sorted -> larger value found before smaller value
+		current = current->next;
+	}
+	return (true); // The list is sorted
 }
