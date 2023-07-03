@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/03 13:47:31 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 17:09:28 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ typedef enum e_direction {
 	BOTTOM
 } t_direction;
 
+typedef enum e_exit {
+	FAIL,
+	SUCCESS
+} t_exit;
+
 // Indivdual nodes
 typedef struct s_node {
 	int				value;
 	int				id;
-	int				binary;
 	struct s_node	*next;
 	struct s_node	*prev;
 } t_node;
@@ -55,14 +59,16 @@ typedef struct s_stack {
 
 // Initializing data into linked list
 void	init_stack(t_stack *stack, int argc, char **argv);
+bool	is_valid_input(t_stack *stack, long value, char *str);
 void	add_node_to_end(t_stack *stack, int node_value);
 bool	is_number(char *str);
 bool	is_duplicate(t_stack *stack, int value);
-void	assign_id_and_binary(t_stack *stack);
-void	assign_binary_value(t_stack *stack);
+void	assign_id(t_stack *stack);
+long	atol(const char *str);
 
 // Sorting
 void	start_sorting(t_stack *stack_a, t_stack *stack_b);
+bool	is_sorted(t_stack *stack);
 void	sort_3(t_stack *stack);
 void	sort_4(t_stack *stack_a, t_stack *stack_b);
 void	sort_5(t_stack *stack_a, t_stack *stack_b);
@@ -71,19 +77,11 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks);
 t_node	*smallest_node(t_stack *stack);
 t_node	*largest_node(t_stack *stack);
 int		get_position(t_stack *stack, t_node *node);
-
-// int		calc_distance_from_top(t_stack *stack, t_node *node);
-// int		find_pos(t_stack *stack, int value);
-// int		calc_ops(t_stack *stack_a, t_stack *stack_b, t_node *node);
-// void	largest_on_top(t_stack *stack);
-
-// OLD:
 bool	nodes_in_chunk(t_stack *stack, int chunk_start, int chunk_end);
 void	rotate_until_on_top_stack(t_stack *stack, t_node *node_to_move, t_operation r, t_operation rr);
 int		check_from_direction(t_node **node, int chunk_start, int chunk_end, t_direction direction);
 void	move_node_to_top(t_stack *stack_a, t_stack *stack_b, t_node *node);
 t_node	*find_optimal_pos(t_stack *stack, t_node *node);
-
 
 // Operations
 void	swap(t_stack *stack, t_operation operation);
@@ -91,11 +89,15 @@ void	pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push, t_operation ope
 void	rotate(t_stack *stack, t_operation operation);
 void	rev_rotate(t_stack *stack, t_operation operation);
 
+// Free
+void	free_stack(t_stack *stack);
+
 // Error handling
-void	display_error_and_exit();
+void	free_and_exit(t_stack *stack, t_exit exit_type);
 
 // Print operations
 void	print_operation(t_operation operation);
+
 
 void	print_list(t_node *node); // NOT NEEDED
 
