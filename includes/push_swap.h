@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/03 17:09:28 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/04 15:20:52 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <stdbool.h> 
 # include <limits.h>
 # include "../42c-library/libft_main.h"
-
-
-int counter; // delete me
 
 typedef enum e_operation {
 	OPERATION_SA,
@@ -97,8 +94,5 @@ void	free_and_exit(t_stack *stack, t_exit exit_type);
 
 // Print operations
 void	print_operation(t_operation operation);
-
-
-void	print_list(t_node *node); // NOT NEEDED
 
 #endif /* PUSH_SWAP_H */

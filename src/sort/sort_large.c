@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:12:59 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/03 18:17:11 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:36:33 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks)
 
 	i = 0;
 	chunk_size = stack_a->size / num_chunks;
-	// if (chunk_size % 2 != 0)
-	// 	chunk_size++;
 	while(i <= num_chunks)
 	{
 		chunk_start = i * chunk_size;
@@ -51,7 +49,7 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 		bottom_node = stack_a->tail;
 
 		// Check from top and bottom
-		top_node_moves = check_from_direction(&top_node, chunk_start, chunk_end, TOP);	
+		top_node_moves = check_from_direction(&top_node, chunk_start, chunk_end, TOP);
 		bottom_node_moves = check_from_direction(&bottom_node, chunk_start, chunk_end, BOTTOM);
 
 		if (top_node_moves <= bottom_node_moves)

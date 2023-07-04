@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:12:31 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/03 16:45:45 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/04 14:39:37 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	free_stack(t_stack *stack)
 		free(current);
 		current = next_node;
 	}
+	// free(current);
 }
