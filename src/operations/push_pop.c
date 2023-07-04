@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:06:26 by cwenz             #+#    #+#             */
-/*   Updated: 2023/06/23 19:12:36 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/04 18:09:56 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 static void push(t_stack *stack, t_node *node);
 static t_node *pop(t_stack *stack);
 
+/**
+ * @brief Performs the stack operation of popping 
+ * 		  a value from one stack to another. After
+ * 		  performing the operation it prints it out.
+ * @param stack_to_pop The stack from which the top node is removed.
+ * @param stack_to_push The stack to which the popped node is added to 
+ * @param operation The operation to be printed.
+ */
 void pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push, t_operation operation)
 {
 	t_node	*node;
@@ -25,6 +33,11 @@ void pop_and_push(t_stack *stack_to_pop, t_stack *stack_to_push, t_operation ope
 	print_operation(operation);
 }
 
+/**
+ * @brief Removes (pops) the top node from the given stack
+ * @param stack The stack to which the node is to be removed
+ * @return The node that was removed. if the stack is empty, returns NULL
+ */
 static t_node *pop(t_stack *stack)
 {
 	t_node	*node_to_pop;
@@ -43,6 +56,11 @@ static t_node *pop(t_stack *stack)
 	return (node_to_pop);	
 }
 
+/**
+ * @brief Adds (pushes) a node to the given stack.
+ * @param stack A pointer to the stack to which the node is added.
+ * @param node The node that is to be added to the stack.
+ */
 static void push(t_stack *stack, t_node *node)
 {
 	node->next = stack->head; // New node becomes current head
