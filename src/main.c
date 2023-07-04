@@ -6,15 +6,11 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:19 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/03 17:02:14 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 17:34:28 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// TODO:
-// 1. Account for int overflow
-// 3. Check edge cases
 
 int	main(int argc, char **argv)
 {

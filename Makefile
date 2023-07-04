@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/07/03 17:07:54 by cwenz            ###   ########.fr        #
+#    Updated: 2023/07/03 18:31:37 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRC_DIR				:= ./src/
 SRC_FILES			:= main.c
 FREE_FILES			:= free_memory.c
 ERROR_FILES			:= error.c
-SORT_FILES			:= start_sorting.c sort_small.c sort_large.c sort_utils.c sort_large_utils.c
+SORT_FILES			:= start_sorting.c sort_small.c sort_large.c sort_utils.c sort_large_utils.c sort_large_utils2.c
 OP_SRC_FILES		:= push_pop.c rotate.c swap.c print_operation.c
 INIT_SRC_FILES		:= initialize.c initialize_utils.c initialize_utils2.c 
 

@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:12:59 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/03 15:33:44 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/03 18:17:11 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 
 static void	move_back_to_stack_a(t_stack *stack_a, t_stack *stack_b);
 static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start, int chunk_end);
-
-double	ft_sqrt(int num) {
-	if (num == 0)
-		return (0);
-	double x = num; // Initial guess
-	double copy = 1.0; // Previous guess
-
-	while (x - copy > 0.0001 || copy - x > 0.0001)
-	{
-		copy = x;
-		x = (x + num / x) / 2;
-	}
-	return (x);
-}
 
 void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks)
 {
@@ -63,11 +49,11 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 		bottom_node_moves = 0;
 		top_node = stack_a->head;
 		bottom_node = stack_a->tail;
-		
+
 		// Check from top and bottom
 		top_node_moves = check_from_direction(&top_node, chunk_start, chunk_end, TOP);	
 		bottom_node_moves = check_from_direction(&bottom_node, chunk_start, chunk_end, BOTTOM);
-		
+
 		if (top_node_moves <= bottom_node_moves)
 			move_node_to_top(stack_a, stack_b, top_node);
 		else
