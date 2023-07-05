@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:31:17 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/04 18:24:55 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/05 13:36:46 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 static void	perform_node_move(t_stack *stack_a, t_stack *stack_b, t_node *top_stack_a_node);
 static void	adjust_stack_b(t_stack *stack_a, t_stack *stack_b);
 
+/**
+ * @brief Moves a given node from the top of stack_a to stack_b while
+ * 		  maintaining the sorted order of both stacks.
+ * @param stack_a A pointer to the initial stack which includes the
+ * 				  node to be moved.
+ * @param stack_b A pointer to the secondary stack where the node will 
+ * 				  be moved to.
+ * @param node A pointer to the node we want to move.
+ */
 void move_node_to_top(t_stack *stack_a, t_stack *stack_b, t_node *node)
 {
 	t_node	*top_node_stack_a;
@@ -28,6 +37,15 @@ void move_node_to_top(t_stack *stack_a, t_stack *stack_b, t_node *node)
 	adjust_stack_b(stack_a, stack_b);
 }
 
+/**
+ * @brief Performs the moving operation of a node from stack_a to stack_b
+ * @param stack_a A pointer to the initial stack which includes the
+ * 				  node to be moved.
+ * @param stack_b A pointer to the secondary stack where the node will 
+ * 				  be moved to.
+ * @param top_stack_a_node A pointer to the node which will become the top
+ * 						   node in stack_b.
+ */
 static void	perform_node_move(t_stack *stack_a, t_stack *stack_b, t_node *top_stack_a_node)
 {
 	t_node	*optimal_spot;
@@ -42,6 +60,13 @@ static void	perform_node_move(t_stack *stack_a, t_stack *stack_b, t_node *top_st
 	}
 }
 
+/**
+ * @brief Adjusts stack_b after a node has been moved from stack_a to stack_b,
+ * 		  ensuring the nodes remain sorted in their respective chunks.
+ * @param stack_a A pointer to the initial stack from which the node has been
+ * 				  moved.
+ * @param stack_b A pointer to the secondary stack where the node has been moved to.
+ */
 static void	adjust_stack_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*smallest;

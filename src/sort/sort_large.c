@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:12:59 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/04 13:36:33 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/05 13:24:07 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 static void	move_back_to_stack_a(t_stack *stack_a, t_stack *stack_b);
 static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start, int chunk_end);
 
+/**
+ * @brief Sorts a large stack by dividing it into smaller chunks and
+ * 		  processing them separately.
+ * @param stack_a A pointer to the stack holding a large number of nodes
+ * 		  to be sorted.
+ * @param stack_b A pointer to an empty stack utilized for the sorting algorithm.
+ * @param num_chunks The number of chunks to divide stack_a into for sorting.
+ */
 void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks)
 {
 	int		i;
@@ -34,6 +42,14 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks)
 	move_back_to_stack_a(stack_a, stack_b);
 }
 
+/**
+ * @brief Processes a specific chunk from stack_a and moves relevant nodes
+ * 		  to stack_b.
+ * @param stack_a A pointer to the original stack to be sorted.
+ * @param stack_b An empty stack utilized for the sorting algorithm.
+ * @param chunk_start The starting index of the chunk in the original stack.
+ * @param chunk_end The ending index of the chunk in the original stack.
+ */
 static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start, int chunk_end)
 {
 	t_node	*top_node;
@@ -62,6 +78,13 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 	}
 }
 
+/**
+ * @brief Moves all nodes from stack_b to stack_a in a sorted order.
+ * @param stack_a A pointer to the original stack to which the 
+ * 				  sorted nodes are moved.
+ * @param stack_b A pointer to the stack holding nodes to be moved back to
+ * 				  stack_a.
+ */
 static void	move_back_to_stack_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*largest;
