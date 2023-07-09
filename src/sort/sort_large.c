@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:12:59 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/05 13:24:07 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/09 15:26:58 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks)
 
 	i = 0;
 	chunk_size = stack_a->size / num_chunks;
+	// Divide the stack into chunks and process separately
 	while(i <= num_chunks)
 	{
 		chunk_start = i * chunk_size;
@@ -39,6 +40,7 @@ void	sort_large(t_stack *stack_a, t_stack *stack_b, int num_chunks)
 		process_stack_a(stack_a, stack_b, chunk_start, chunk_end);
 		i++;
 	}
+	// After processing all chunks, move everything back to stack A
 	move_back_to_stack_a(stack_a, stack_b);
 }
 
@@ -57,6 +59,7 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 	int		top_node_moves;
 	int		bottom_node_moves;
 
+	// Process each node in stack A
 	while (stack_a->size)
 	{
 		top_node_moves = 0;
@@ -64,10 +67,11 @@ static void	process_stack_a(t_stack *stack_a, t_stack *stack_b, int chunk_start,
 		top_node = stack_a->head;
 		bottom_node = stack_a->tail;
 
-		// Check from top and bottom
+		// Check from top and bottom to determine number of moves
 		top_node_moves = check_from_direction(&top_node, chunk_start, chunk_end, TOP);
 		bottom_node_moves = check_from_direction(&bottom_node, chunk_start, chunk_end, BOTTOM);
 
+		// Move the node that requires fewer moves to the top
 		if (top_node_moves <= bottom_node_moves)
 			move_node_to_top(stack_a, stack_b, top_node);
 		else
@@ -90,12 +94,15 @@ static void	move_back_to_stack_a(t_stack *stack_a, t_stack *stack_b)
 	t_node	*largest;
 	int		pos;
 
+	// While there are nodes in stack B, move each node back to stack A
 	while (stack_b->size)
 	{
 		largest = largest_node(stack_b);
 		pos = get_position(stack_b, largest);
+		// Rotate stack B until the largest is on top
 		while (stack_b->head != largest)
 		{
+			// Determine which is more efficient
 			if (pos < stack_b->size / 2)
 				rotate(stack_b, OPERATION_RB);
 			else

@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:09:45 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/07 16:22:42 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/09 15:28:43 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,6 @@
  * 				  this stack.
  * @param stack_b A pointer to the second stack which may be used by 
  * 				  the sorting algorithm for an additional stack
- * @note If the size of stack_a is 2, the swap funciton is used;
- * 		 If the size is 3, it uses sort_3;
- * 		 If the size if 4, it uses sort_4;
- * 		 If the size is 5, it uses sort_5;
- * 		 If the size is 6 to 7, it uses_sort_large with 3 chunks;
- * 		 If the size is 8 to 200, it uses sort_large with 8 chunks;
- * 		 If the size is above 200, it uses sort_large with 16 chunks;
  */
 void	start_sorting(t_stack *stack_a, t_stack *stack_b)
 {

@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:31:17 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/05 13:36:46 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/09 15:22:51 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ void move_node_to_top(t_stack *stack_a, t_stack *stack_b, t_node *node)
 	t_node	*top_node_stack_a;
 	
 	top_node_stack_a = NULL;
+	// Rotate the stack to bring the given node to the top
 	rotate_until_on_top_stack(stack_a, node, OPERATION_RA, OPERATION_RRA);
 	// Peek at the next node in stack A, which will become the head of stack A after the pop operation
 	if (stack_a->head != NULL && stack_a->head->next != NULL)
 		top_node_stack_a = stack_a->head->next;
+	// Move the node from stack A to stack B
 	perform_node_move(stack_a, stack_b, top_node_stack_a);
+	// adjust stack B after move
 	adjust_stack_b(stack_a, stack_b);
 }
 
@@ -75,6 +78,7 @@ static void	adjust_stack_b(t_stack *stack_a, t_stack *stack_b)
 	// After rotation, check if stack_b needs any adjustments
 	if (stack_b->size)
 	{
+		// Find smallest and largest nodes in stack B
 		smallest = smallest_node(stack_b);
 		largest = largest_node(stack_b);
 		// If the top node of stack_a is smaller than the smallest node or larger than the largest node in stack_b

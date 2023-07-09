@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 18:13:53 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/05 12:54:11 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/09 15:28:11 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	sort_3(t_stack *stack)
 	head = stack->head->value; // first element in the stack
 	mid = stack->head->next->value; // second element in the stack
 	tail = stack->tail->value; // third element in the stack
+	// Since there are only 5 possibilities, we can hard code it:
 	if (head > mid && mid < tail && head < tail)
 		swap(stack, OPERATION_SA);
 	else if (head > mid && mid < tail && tail < head)
@@ -57,6 +58,7 @@ void	sort_4(t_stack *stack_a, t_stack *stack_b)
 
 	min = smallest_node(stack_a);
 	pos = get_position(stack_a, min);
+	// Get the smallest node and push it to stack B
 	while (stack_a->head != min)
 	{
 		if (pos < stack_a->size / 2)
@@ -65,8 +67,8 @@ void	sort_4(t_stack *stack_a, t_stack *stack_b)
 			rev_rotate(stack_a, OPERATION_RRA);
 	}
 	pop_and_push(stack_a, stack_b, OPERATION_PB);
-	sort_3(stack_a);
-	pop_and_push(stack_b, stack_a, OPERATION_PA);
+	sort_3(stack_a); // Sort the remaining 3 nodes
+	pop_and_push(stack_b, stack_a, OPERATION_PA); // Push the smallest node that is in stack B back to A
 }
 
 /**
