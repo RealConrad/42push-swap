@@ -76,10 +76,11 @@ You can use it like so: `./push_swap <random numbers>` or `./push_swap "<random 
 ```shell
 ./push_swap 3 1 2
 ```
+> Below will generate an error as its not numeric:
 ```
 ./push_swap three one two
 ```
-> This will generate an erro as its not numeric
+
 5 Numbers:
 ```shell
 ./push_swap 5 1 4 2 3
@@ -89,3 +90,9 @@ You can use it like so: `./push_swap <random numbers>` or `./push_swap "<random 
 ./push_swap 84 29 56 37 61 9 45 79 92 51 6 24 2 68 83 70 47 96 16 74 64 39 55 13 1 90 5 58 76 28 88 31 72 87 94 20 77 40 97 63 19 23 80 44 12 81 60 95 69 66 25 85 21 98 53 78 30 10 18 49 71 41 3 86 14 75 38 91 34 26 62 11 99 7 22 42 50 67 32 48 15 89 36 59 27 8 43 65 54 33 93 4 17 73 46 57 35 82 52 100
 ```
 
+## Tools
+To better visualize and test push_swap, consider using the following tool:
+- [Push Swap Visualizer](https://github.com/o-reo/push_swap_visualizer): This tool provides a visual representation of the push_swap operations.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
