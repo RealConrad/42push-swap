@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:01:28 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/05 14:00:33 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/09 15:18:50 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@ int	check_from_direction(t_node **node, int chunk_start, int chunk_end, t_direct
 	i = 0;
 	while(*node)
 	{
+		// If the current node's id falls within the chunk range, stop checking
 		if ((*node)->id >= chunk_start && (*node)->id <= chunk_end)
 			break ;
+			// Move to the next or previous node based on given direction
 		if (direction == TOP)
 			*node = (*node)->next;
 		else if (direction == BOTTOM)
 			*node = (*node)->prev;
 		i++;
 	}
-	return (i);
+	return (i); // return the number of steps it took to find the node
 }
 /**
  * @brief Finds the optimal position in the stack for a given node,
@@ -54,13 +56,17 @@ t_node	*find_optimal_pos(t_stack *stack, t_node *node)
 	temp = stack->head;
 	while (temp)
 	{
+		// Check if the current node's value is less than the given node's value
+		// and the next node's value is greater than the give node's value
 		if (temp->next && temp->value < node->value && temp->next->value > node->value)
-			return (temp);
+			return (temp); // If such a position is found, return current node
 		temp = temp->next;
 	}
+	// Ifn ot optimal position was found in the above loop
+	// Check if the given node's value is less than the smallest value
 	if (node->value < smallest_node(stack)->value)
-		return smallest_node(stack);
-	return (largest_node(stack));
+		return smallest_node(stack); // If so, return the smallest node
+	return (largest_node(stack)); // If not, return the largest node
 }
 
 /**
@@ -78,10 +84,12 @@ bool	nodes_in_chunk(t_stack *stack, int chunk_start, int chunk_end)
 	temp_node = stack->head;
 	while (temp_node)
 	{
+		// Check if the node's id is within the chunk range
 		if (temp_node->id >= chunk_start && temp_node->id <= chunk_end)
-			return (true);
+			return (true); // If so, return true
 		temp_node = temp_node->next;
 	}
+	// If we get to here, it means no nodes were found within the given chunk range
 	return (false);
 }
 
@@ -106,10 +114,13 @@ void	rotate_until_on_top_stack(t_stack *stack, t_node *node_to_move, t_operation
 		current = current->next;
 		position++;
 	}
+	// Keep rotating until node is at the top
 	while (stack->head != node_to_move)
 	{
+		// If the position is in the first half of the stack, use rotate (less operation calls)
 		if (position <= stack->size / 2)
 			rotate(stack, r);
+		// If the position is in the first half of the stack, use rev_rotate (less operation calls)
 		else
 			rev_rotate(stack, rr);
 	}
