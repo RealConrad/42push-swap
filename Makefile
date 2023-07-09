@@ -6,7 +6,7 @@
 #    By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 16:26:30 by cwenz             #+#    #+#              #
-#    Updated: 2023/07/07 18:01:05 by cwenz            ###   ########.fr        #
+#    Updated: 2023/07/09 15:33:15 by cwenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ NAME				:= push_swap
 
 # Name of the library to be included
 LIBFT				:= libft.a
+
+# Repo URL
+REPO				:= https://github.com/RealConrad/42c-library.git
 
 # Compiler and flags
 CC					:= cc
@@ -61,14 +64,20 @@ SRC					+= $(addprefix $(FREE_DIR), $(FREE_FILES))
 OBJ					:= $(SRC:.c=.o)
 
 # Default target
-all: $(NAME)
+all: clone $(NAME)
 
 # Create library and add all object files
 $(NAME): $(SRC)
 	@$(C_LIBRARY_MAKE)
 	@cp $(C_LIBRARY) .
 	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME)
-	
+
+# Clones repo
+clone:
+	@if [ ! -d "42c-library" ]; then \
+		git clone $(REPO); \
+	fi
+
 # Remove all object files
 clean:
 	@$(RM) $(OBJ)
