@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:25:15 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/08 17:48:22 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/21 19:36:11 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void	init_stack(t_stack *stack, int argc, char **argv)
 		{
 			value = atol(split_strings[j]); // convert current string to long type
 			if (!is_valid_input(stack, value, split_strings[j])) // check if its valid input
+			{
+				 free_split_strings(split_strings); // Free the split strings
 				free_and_exit(stack, FAIL);
+			}
 			add_node_to_end(stack, (int) value); // typecast back to int as we only want ints
 			free(split_strings[j]); // free the current string as we dont need it anymore
 			j++;

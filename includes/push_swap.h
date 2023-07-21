@@ -6,7 +6,7 @@
 /*   By: cwenz <cwenz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:27:03 by cwenz             #+#    #+#             */
-/*   Updated: 2023/07/10 16:03:55 by cwenz            ###   ########.fr       */
+/*   Updated: 2023/07/21 19:36:33 by cwenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	rev_rotate(t_stack *stack, t_operation operation);
 
 // Free
 void	free_stack(t_stack *stack);
+void	free_split_strings(char **split_strings);
 
 // Error handling
 void	free_and_exit(t_stack *stack, t_exit exit_type);
